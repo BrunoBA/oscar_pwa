@@ -5,7 +5,12 @@
     /*margin-bottom: 60px;*/
 }
 
+.title {
+    font-weight: 650;
+}
+
 .legend {
+    width: 100%;
     font-size: 12px;
     padding: 0px;
     text-align: left;
