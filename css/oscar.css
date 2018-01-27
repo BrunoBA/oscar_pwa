@@ -1,8 +1,13 @@
 .movie {
     width: 138px;
     height: 188px;
+    border: solid 1px white;
+    cursor: pointer;
     /*padding: 4px;*/
     /*margin-bottom: 60px;*/
+}
+.movie:hover {
+    border: solid 5px #dec933;
 }
 
 /*p {
