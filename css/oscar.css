@@ -1,4 +1,20 @@
 .movie {
-    width:120px;
-    height:182px;
+    width: 138px;
+    height: 188px;
+    /*padding: 4px;*/
+    /*margin-bottom: 60px;*/
 }
+
+.legend {
+    font-size: 12px;
+    padding: 0px;
+    text-align: center;
+    display: inline-block;
+    /*background-color: blue;*/
+}
+
+/*Esse tbm ficou legal
+.movie {
+    width:130px;
+    height:166px;
+}*/
