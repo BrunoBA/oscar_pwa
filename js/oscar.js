@@ -30,7 +30,7 @@ let movies = window.localStorage.getItem('movies') || '{}';
 movies = JSON.parse(movies);
     
 let updateList = function() {
-    console.log('[Application Start to Watch]')
+    console.log('[Application] Start to Watch')
     Array.observe(movies, function (changes) {
         let attr = changes[FIRST_INDEX].name;
 
@@ -77,7 +77,7 @@ function refreshPage () {
 updateList();
 
 document.addEventListener('DOMContentLoaded', function(event) {
-    console.log('[Application Started]');
+    console.log('[Application] Started');
     refreshPage();
 });
 
@@ -108,4 +108,14 @@ document.addEventListener('click', function(event){
     }
 });
 
-
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+    .register('./service-worker-pwa.js')
+    .then(function(reg){
+        console.log('[ServiceWorker] is Registered ');
+    })
+    .catch(function(err){
+        console.log('ERROR', err);
+        console.warn('Erro no registro de service worker');
+    });
+}
