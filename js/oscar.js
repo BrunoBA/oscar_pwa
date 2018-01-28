@@ -26,14 +26,12 @@ const CATEGORIES_AVAILABLE = [
         'writing_original', 
     ];
 
-let movies = {};
-let notes = {
-    data:[]
-};
+let movies = window.localStorage.getItem('movies') || '{}';
+movies = JSON.parse(movies);
     
 let updateList = function() {
     console.log('[Application Start to Watch]')
-    Object.observe(movies, function (changes) {
+    Array.observe(movies, function (changes) {
         let attr = changes[FIRST_INDEX].name;
 
         if (changes[FIRST_INDEX].type === 'add') {
@@ -43,6 +41,8 @@ let updateList = function() {
         if (changes[FIRST_INDEX].type === 'update' && changes[FIRST_INDEX].oldValue.src !== eval('movies.'+attr+'.src')) {
             console.log('O filme foi alterado');
         }
+
+        window.localStorage.setItem('movies', JSON.stringify(movies));
     });
 }
 
@@ -78,8 +78,10 @@ document.addEventListener('click', function(event){
                 elements[0].style.border = 'solid 5px #dec933';    
             }
         }
-        
+
         //Pode ser colocado um confirm aqui
         eval('movies.'+category+' = { src: image, legend: legend, subLegend: subLegend, category: category, date: dateTime };');
     }
 });
+
+
