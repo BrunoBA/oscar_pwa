@@ -41,7 +41,6 @@ let updateList = function() {
         if (changes[FIRST_INDEX].type === 'update' && changes[FIRST_INDEX].oldValue.src !== eval('movies.'+attr+'.src')) {
             console.log('O filme foi alterado');
         }
-
         window.localStorage.setItem('movies', JSON.stringify(movies));
     });
 }
@@ -51,10 +50,35 @@ function getCurrentDate () {
     return d.toLocaleString('pt-BR');
 }
 
+function valuesToArray(obj) {
+  return Object.keys(obj).map(function (key) { return obj[key]; });
+}
+
+//Atualiza a página de categorias atomaticamente
+function refreshPage () {
+    let arrayOfCategories = valuesToArray(movies);
+    let count = arrayOfCategories.length;
+    
+    if (count > 0) {
+        for (let i = 0; i < count; i++) {
+            let category = arrayOfCategories[i].category;
+            let sameClass = document.getElementsByClassName(arrayOfCategories[i].category);
+            let quantity = sameClass.length;
+
+            for (let j = 0; j < quantity; j++) {
+                if (sameClass[j].getAttribute('src') == eval('movies.'+category+'.src')) {
+                    sameClass[j].style.border = 'solid 5px #dec933';
+                }
+            }
+        }
+    }
+}
+
 updateList();
 
 document.addEventListener('DOMContentLoaded', function(event) {
     console.log('[Application Started]');
+    refreshPage();
 });
 
 document.addEventListener('click', function(event){
