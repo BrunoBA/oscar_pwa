@@ -1,3 +1,4 @@
+const IMAGE_DEFAULT = 'imgs/no_selected.jpeg';
 const FIRST_INDEX = 0;
 const CATEGORIES_AVAILABLE = [
         'movie', 
@@ -68,6 +69,18 @@ function refreshPage () {
             for (let j = 0; j < quantity; j++) {
                 if (sameClass[j].getAttribute('src') == eval('movies.'+category+'.src')) {
                     sameClass[j].style.border = 'solid 5px #dec933';
+                }
+
+                if (sameClass[j].getAttribute('src') == IMAGE_DEFAULT) {
+                    let elements = sameClass[j].parentElement.children;
+                    let image = elements[1];
+                    let legend = elements[2];
+                    let subLegend = elements[3];
+                    let newUrl = eval('movies.'+category+'.src')
+
+                    image.setAttribute('src', newUrl);
+                    legend.innerHTML = eval('movies.'+category+'.legend');
+                    subLegend.innerHTML = eval('movies.'+category+'.subLegend');
                 }
             }
         }
