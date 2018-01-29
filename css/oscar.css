@@ -7,7 +7,7 @@
     width: 100%;
 }
 
-.better {
+.better, .actor, .actress {
     width: 138px;
     height: 188px;
     cursor: pointer;
