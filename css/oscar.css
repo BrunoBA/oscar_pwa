@@ -1,4 +1,22 @@
-.movie {
+
+.category {
+    font-size: 0.58rem;
+    font-weight: 900;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
+.better {
+    width: 138px;
+    height: 188px;
+    background-color: red;
+    cursor: pointer;
+    /*padding: 4px;*/
+    /*margin-bottom: 60px;*/
+}
+
+ .movie {
     width: 138px;
     height: 188px;
     /*border: solid 1px white;*/
