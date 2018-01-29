@@ -1,4 +1,4 @@
-let cacheName = 'oscar_pwa_1.0.0';
+let cacheName = 'oscar_pwa_1.0.1';
 let filesToCache = [
     './',
     'index.html',
