@@ -23,7 +23,7 @@
     /*padding: 4px;*/
     /*margin-bottom: 60px;*/
 }
-.movie:hover {
+.better:hover, .movie:hover {
     /*border: solid 5px #dec933;*/
     opacity: 0.9;
 }
